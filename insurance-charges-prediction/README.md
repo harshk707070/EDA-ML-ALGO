@@ -20,6 +20,8 @@ This repository contains a complete machine learning project to predict insuranc
 ## 🚀 Installation
 
 To run the project locally, ensure you have Python installed. Then install the required libraries:
+Install dependencies
+pip install -r requirements.txt
 
 ### Clone the repository
 ```bash

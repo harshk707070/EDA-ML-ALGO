@@ -7,9 +7,7 @@ This repository contains a beginner-friendly project to predict medical insuranc
 - [Installation](#installation)
 - [Usage](#usage)
 - [Dataset](#dataset)
-- [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
-- [Model Training](#model-training)
-- [Streamlit App (Optional)](#streamlit-app-optional)
+- [Model](#model-training)
 - [Results](#results)
 
 ## Installation
@@ -81,34 +79,67 @@ The dataset used in this notebook is included in the repository.
 
 The modeling process is implemented in the notebook modeling.ipynb and follows these beginner-friendly steps:
 
-    - Data Loading:
-      Load the cleaned dataset (cleaned_insurance.csv) generated during EDA into a pandas DataFrame.
+1. Data Loading: Load the cleaned dataset (cleaned_insurance.csv) generated during EDA into a pandas DataFrame.
 
-Encoding:
-Categorical columns like sex, smoker, and region are encoded using LabelEncoder for compatibility with scikit-learn models.
+2. Encoding: Categorical columns like sex, smoker, and region are encoded using LabelEncoder for compatibility with scikit-learn models.
 
-Model Training:
-A RandomForestRegressor is trained to predict insurance charges based on features like age, BMI, number of children, etc.
+3. Model Training: A RandomForestRegressor is trained to predict insurance charges based on features like age, BMI, number of children, etc.
 
-Saving the Model:
-After training, the following files are saved in the models/ directory:
+4. Saving the Model: After training, the following files are saved in the models/ directory:
+    - random_forest_model.pkl: the trained Random Forest model.
+    - label_encoders.pkl: encoders used to transform categorical inputs (needed during app inference).
 
-random_forest_model.pkl: the trained Random Forest model.
-
-label_encoders.pkl: encoders used to transform categorical inputs (needed during app inference).
-
-Model Evaluation:
+5. Model Evaluation:
 The model is evaluated using:
 
-Mean Absolute Error (MAE)
-
-Root Mean Squared Error (RMSE)
-
-R² Score (coefficient of determination)
+    Mean Absolute Error (MAE)
+    Root Mean Squared Error (RMSE)
+    R² Score (coefficient of determination)
 
 These metrics give a sense of how accurately the model predicts insurance charges on unseen data.
 
 ### Results
 
-The notebook includes visualizations of the dataset and the linear regression model. The performance metrics of the model are also displayed.
+Here are the Results for both EDA and the Model:
+
+## EDA Results (Exploratory Data Analysis)
+
+The initial dataset (`insurance.csv`) contained personal and health-related information for individuals along with their insurance charges. Here's what we discovered during EDA:
+
+- **No Missing Values**:  
+  There were no null values in any column. ✅
+
+- **Categorical Columns Identified**:  
+  `sex`, `smoker`, and `region` were identified as categorical columns to be encoded for modeling.
+
+- **Age Groups**:  
+  We added an `age_group` column to better understand trends across different age ranges, e.g., "18–25", "26–35", etc.
+
+- **Outliers Detected**:  
+  Some outliers were found in the `bmi` and `charges` columns using boxplots and were considered during visualization.
+
+- **Visual Insights**:
+  - Smokers have significantly higher insurance charges than non-smokers.
+  - Charges tend to increase with age and BMI.
+  - Males and females have similar distributions of charges.
+
+- **Final Cleaned File**:  
+  The cleaned dataset was saved as `cleaned_insurance.csv` in the `data/` folder and used for modeling.
+
+## Results
+
+After training a Random Forest Regressor on the cleaned data, we evaluated the model's performance using standard metrics:
+
+- **Mean Absolute Error (MAE)**: ~2700 INR  
+  → On average, the model's prediction is off by around ₹2700.
+
+- **Root Mean Squared Error (RMSE)**: ~4300 INR  
+  → A slightly more sensitive error measure. The higher it is, the more large errors exist.
+
+- **R² Score**: ~0.88  
+  → This means the model can explain about 88% of the variance in insurance charges — which is quite good!
+
+These results suggest that the model is effective and suitable for real-world predictions, especially when used inside the Streamlit app for quick estimations.
+
+
 

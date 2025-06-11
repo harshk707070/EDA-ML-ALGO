@@ -126,7 +126,7 @@ The initial dataset (`insurance.csv`) contained personal and health-related info
 - **Final Cleaned File**:  
   The cleaned dataset was saved as `cleaned_insurance.csv` in the `data/` folder and used for modeling.
 
-## Results
+## Model Results
 
 After training a Random Forest Regressor on the cleaned data, we evaluated the model's performance using standard metrics:
 

@@ -22,7 +22,7 @@ To run the notebook locally, you need to have Python installed along with the ne
     cd repository-name
     ```
 
-   2. Install the necessary libraries:
+2. Install the necessary libraries:
     ```bash
     pip install pandas numpy matplotlib seaborn plotly scikit-learn joblib streamlit jupyter
     ```
@@ -77,15 +77,36 @@ If you've already trained the model or want to use the pre-saved files:
 
 The dataset used in this notebook is included in the repository.
 
-## Linear Regression Model
+## Model
 
-The notebook demonstrates the following steps:
+The modeling process is implemented in the notebook modeling.ipynb and follows these beginner-friendly steps:
 
-1. **Data Loading**: Load the dataset into a pandas DataFrame.
-2. **Data Preprocessing**: Clean and preprocess the data for modeling.
-3. **Model Training**: Train a linear regression model using scikit-learn.
-4. **Model Evaluation**: Evaluate the model's performance using appropriate metrics.
-5. **Visualization**: Visualize the results and the regression line.
+    - Data Loading:
+      Load the cleaned dataset (cleaned_insurance.csv) generated during EDA into a pandas DataFrame.
+
+Encoding:
+Categorical columns like sex, smoker, and region are encoded using LabelEncoder for compatibility with scikit-learn models.
+
+Model Training:
+A RandomForestRegressor is trained to predict insurance charges based on features like age, BMI, number of children, etc.
+
+Saving the Model:
+After training, the following files are saved in the models/ directory:
+
+random_forest_model.pkl: the trained Random Forest model.
+
+label_encoders.pkl: encoders used to transform categorical inputs (needed during app inference).
+
+Model Evaluation:
+The model is evaluated using:
+
+Mean Absolute Error (MAE)
+
+Root Mean Squared Error (RMSE)
+
+R² Score (coefficient of determination)
+
+These metrics give a sense of how accurately the model predicts insurance charges on unseen data.
 
 ### Results
 

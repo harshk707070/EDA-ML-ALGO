@@ -27,8 +27,6 @@ To run the notebook locally, you need to have Python installed along with the ne
     pip install pandas numpy matplotlib seaborn plotly scikit-learn joblib streamlit jupyter
     ```
 
-    ```
-
 ## Usage
 
 You can either retrain the model from scratch using the provided cleaned dataset or directly run the interactive Streamlit app using the pre-trained files.

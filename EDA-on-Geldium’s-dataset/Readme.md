@@ -74,7 +74,7 @@ This project uses prompt engineering to generate automated insights:
 ## 📄 Final Deliverables
 
 - 📓 `Geldium_EDA_Final.ipynb`: Step-by-step EDA with AI annotations
-- 📃 `Geldium_EDA_Report.pdf`: Structured report for submission (based on Tata iQ template)
+- 📃 `Geldium_EDA_Report.pdf`: Structured report for submission
 - 🧠 README for portfolio/showcase
 
 ---
